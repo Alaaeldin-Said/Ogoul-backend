@@ -27,6 +27,7 @@ const contactSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A contact info must contain a subject'],
     trim: true,
+    defualt: null,
   },
   postingDate: {
     type: Date,
@@ -34,6 +35,7 @@ const contactSchema = new mongoose.Schema({
   },
   message: {
     type: String,
+    default: null,
   },
   emailSentTo: {
     type: String,

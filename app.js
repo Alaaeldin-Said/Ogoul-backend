@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const jobRouter = require('./routes/jobSpecRoutes');
 const contactRouter = require('./routes/contactRoutes');
+const userRouter = require('./routes/userRoutes');
 
 const app = express();
 if (process.env.NODE_ENV === 'development') {
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Routes
+app.use('/api/v1/users', userRouter);
 app.use('/api/v1/jobs', jobRouter);
 app.use('/api/v1/contacts', contactRouter);
 
