@@ -70,7 +70,6 @@ exports.protect = async (req, res, next) => {
   let token;
   console.log(req.headers);
   if (req.headers.authorization.startsWith('Bearer')) {
-
     token = req.headers.authorization.split(' ')[1];
   }
 
@@ -99,9 +98,7 @@ exports.protect = async (req, res, next) => {
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
-    console.log(req.user);
-    //  roles ['admin', 'writer'].... default role ['user']
-    console.log(roles.includes());
+
     if (!roles.includes(req.user.role)) {
       res.status(403).json({
         status: 'fail',

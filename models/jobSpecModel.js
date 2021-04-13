@@ -38,6 +38,11 @@ const jobSpecSchema = new mongoose.Schema({
     type: String,
     require: [true, 'A job position must have a Job Type.'],
   },
+  group: {
+    type: String,
+    enum: ['humanResources', 'customerSupport', 'webMobileDevelopment', 'businessDevelopment', 'salesMarketing'],
+    require: [true, 'A job must have a group defined!'],
+  },
   slug: String,
 });
 
