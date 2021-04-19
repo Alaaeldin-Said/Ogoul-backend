@@ -8,6 +8,10 @@ const jobSpecSchema = new mongoose.Schema({
     maxlength: [170, 'A Job title must be less than 171 characters!'],
     trim: true,
   },
+  briefDescription: {
+    type: String,
+    maxlength: [40, 'a brief description should be less than 40 characters'],
+  },
   description: {
     type: String,
     require: [true, 'A Job must have a description'],
