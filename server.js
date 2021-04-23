@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const autoIncrement = require('mongoose-auto-increment');
 
 dotenv.config({ path: './config.env' });
 //  SET UP FOR MONGOOSE AND CONNECT TO DB

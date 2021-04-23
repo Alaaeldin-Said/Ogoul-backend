@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('mongoose-validator');
 
 const contactSchema = new mongoose.Schema({
-  name: {
+  fullName: {
     type: String,
     required: [true, 'A contact must have a name'],
     maxlength: [171, 'A contact name must be less than 171 characters!'],
@@ -18,7 +18,7 @@ const contactSchema = new mongoose.Schema({
       }),
     ],
   },
-  contactNumber: {
+  contactNo: {
     type: Number,
     maxlength: 16,
     default: null,

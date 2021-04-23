@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const jobApplySchema = new mongoose.Schema({
-  name: {
+  fullName: {
     type: String,
     required: [true, 'An applicant must have a name'],
     maxlength: [200, 'An applicant must be less than 200 characters'],
@@ -10,15 +10,22 @@ const jobApplySchema = new mongoose.Schema({
     type: String,
     required: [true, 'An applicant must have an email'],
   },
-  contactNumber: {
+  contactNo: {
     type: Number,
     default: null,
   },
-  resume: {
+  resumeUrl: {
     type: String,
     require: [true, 'An applicant must have a resume...'],
   },
-  refId: String,
+  applyDate: {
+    type: Date,
+    default: Date.now,
+  },
+  refId: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'jobSpec',
+  },
 });
 
 const JobApplication = mongoose.model('candidates', jobApplySchema);

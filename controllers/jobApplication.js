@@ -7,7 +7,7 @@ const multerStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split('/')[1];
-    console.log(ext);
+
     cb(null, `applicants-${Date.now()}.${ext}`);
   },
 });
@@ -16,14 +16,14 @@ const upload = multer({
   storage: multerStorage,
 });
 
-exports.candidateResume = upload.single('resume');
+exports.candidateResume = upload.single('resumeUrl');
 
 // to post a job
 exports.applyJob = async (req, res) => {
   console.log(req.file);
   console.log(req.body);
-  req.body.resume = req.file.filename;
-  console.log('I am req.body: ', req.body, req.body.resume);
+  req.body.resumeUrl = req.file.filename;
+  console.log('I am req.body: ', req.body, req.body.resumeUrl);
   try {
     const newCandidate = await jobApplication.create(req.body);
 

@@ -5,6 +5,7 @@ const jobRouter = require('./routes/jobSpecRoutes');
 const contactRouter = require('./routes/contactRoutes');
 const userRouter = require('./routes/userRoutes');
 const applicantRouter = require('./routes/applicantRoutes');
+const groupRouter = require('./routes/GroupRoutes');
 
 const app = express();
 if (process.env.NODE_ENV === 'development') {
@@ -26,5 +27,6 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/jobs', jobRouter);
 app.use('/api/v1/contacts', contactRouter);
 app.use('/api/v1/candidates', applicantRouter);
+app.use('/api/v1/groups', groupRouter);
 
 module.exports = app;
